@@ -1,0 +1,362 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Passions | HERSTORY</title>
+
+    <link rel="icon" type="image/png" href="reading.png">
+
+    <!-- PRELOAD SAVED NIGHT MODE -->
+    <script>
+        try {
+            if (localStorage.getItem("herstory_night_mode") === "true") {
+                document.documentElement.classList.add("night-mode");
+            }
+        } catch (error) {
+            console.log("Unable to load saved theme.");
+        }
+    </script>
+
+    <link rel="stylesheet" href="style5.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            background-color: #F8F5E8;
+            overscroll-behavior-y: none;
+            overflow-x: clip;
+            max-width: 100%;
+        }
+
+        .petal-container {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .petal {
+            position: absolute;
+            top: -30px;
+            color: #B9A58A;
+            opacity: 0.65;
+            animation: fallingPetals linear infinite;
+        }
+
+        @keyframes fallingPetals {
+            0% {
+                transform: translateY(-30px) rotate(0deg);
+                opacity: 0;
+            }
+
+            15% {
+                opacity: 0.65;
+            }
+
+            85% {
+                opacity: 0.5;
+            }
+
+            100% {
+                transform: translateY(110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- SCROLL PROGRESS INDICATOR -->
+    <div id="scroll-progress"></div>
+
+
+    <!-- FALLING FLOWER PETALS -->
+    <div class="petal-container"></div>
+
+
+    <!-- NAVBAR -->
+    <header>
+
+        <nav class="navbar">
+
+           <div class="logo">
+    𐙚 HERSTORY 𓍯𓂃
+</div>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="family.html">Family</a></li>
+                <li><a href="journey.html">Journey</a></li>
+                <li><a href="passion.html" class="active">Passions</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+    <main>
+
+        <!-- PASSION HERO -->
+        <section class="passion-hero">
+
+            <div class="passion-hero-content">
+
+                <p class="passion-small-title">
+                    THE LITTLE THINGS SHE LOVES
+                </p>
+
+                <div class="passion-flower">𐙚</div>
+
+                <h1>Her Passions.</h1>
+
+                <div class="passion-line"></div>
+
+                <p>
+                    In the little things, she finds joy. In some, comfort; in others, inspiration. These are the hobbies, passions, and simple pleasures that make her days a little brighter and her heart a little fuller.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- INTRODUCTION -->
+        <section class="passion-introduction">
+
+            <div class="passion-introduction-content">
+
+                <p class="section-label">
+                    A LITTLE PIECE OF HER
+                </p>
+
+                <h2>Things That Make Her Happy</h2>
+
+                <div class="passion-editorial-line"></div>
+
+                <p>
+                    Everyone has their own way of enjoying life.
+                    For Felicia, it can be found in quiet moments
+                    with a book, experimenting in the kitchen,
+                    or simply listening to music and letting
+                    herself get lost in the melody.
+                </p>
+
+                <p>
+                    They may seem like simple hobbies, but
+                    sometimes the simplest things are the ones
+                    that bring the most comfort.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- READING -->
+        <section class="passion-section">
+
+            <div class="passion-card">
+
+                <div class="passion-image">
+                    <img src="bookworm.jpeg" alt="Books and reading">
+                </div>
+
+                <div class="passion-content">
+
+                    <span class="passion-number">
+                        01 / HER QUIET CORNER
+                    </span>
+
+                    <h2>Reading Books</h2>
+
+                    <div class="passion-divider"></div>
+
+                    <p>
+                        There is something special about opening a book
+                        and stepping into a different world. Reading
+                        allows her to explore different stories,
+                        discover new perspectives, and enjoy a little
+                        escape from everyday life.
+                    </p>
+
+                    <p>
+                        Whether it is a few pages before bed or
+                        spending time with a story she enjoys,
+                        books give her a peaceful moment
+                        of her own.
+                    </p>
+
+                    <span class="passion-quote">
+                        "A little escape between the pages."
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- COOKING -->
+        <section class="passion-section passion-alternate">
+
+            <div class="passion-card">
+
+                <div class="passion-image">
+                    <img src="cooks.jpg" alt="Cooking food">
+                </div>
+
+                <div class="passion-content">
+
+                    <span class="passion-number">
+                        02 / HER CREATIVE SIDE
+                    </span>
+
+                    <h2>Cooking</h2>
+
+                    <div class="passion-divider"></div>
+
+                    <p>
+                        Cooking is one of the little things she enjoys,
+                        especially when she gets to turn simple
+                        ingredients into something delicious.
+                        It gives her a chance to be creative,
+                        try different things, and enjoy the process
+                        of making food.
+                    </p>
+
+                    <p>
+                        From preparing a favourite meal to
+                        experimenting with recipes, the kitchen
+                        can be a place where creativity
+                        meets comfort.
+                    </p>
+
+                    <span class="passion-quote">
+                        "Made with a little love and a lot of flavour."
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- MUSIC -->
+        <section class="passion-section">
+
+            <div class="passion-card">
+
+                <div class="passion-image">
+                    <img src="songs.png" alt="Headphones and music">
+                </div>
+
+                <div class="passion-content">
+
+                    <span class="passion-number">
+                        03 / HER SOUNDTRACK
+                    </span>
+
+                    <h2>Listening to Music</h2>
+
+                    <div class="passion-divider"></div>
+
+                    <p>
+                        Music is always there for different moods.
+                        Whether she is relaxing, doing something,
+                        travelling, or simply spending time alone,
+                        a good song can make the moment feel different.
+                    </p>
+
+                    <p>
+                        She enjoys listening to alternative music
+                        and dark R&amp;B, finding comfort in the
+                        sounds, lyrics, and feelings that
+                        certain songs bring.
+                    </p>
+
+                    <span class="passion-quote">
+                        "Some feelings are easier to hear than explain."
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CLOSING -->
+        <section class="passion-closing">
+
+            <div class="passion-closing-content">
+
+                <span class="closing-icon">𐙚</span>
+
+                <p class="section-label">
+                    A LITTLE MORE OF HER
+                </p>
+
+                <h2>
+                    Finding happiness in her own little world.
+                </h2>
+
+                <p>
+                    These are the things she loves,
+                    the moments she enjoys, and the little
+                    pieces of life that make her story
+                    uniquely hers.
+                </p>
+
+                <a href="index.html" class="passion-button">
+                    Back To HERSTORY &rarr;
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+   
+    <script>
+        (function () {
+            const container = document.querySelector(".petal-container");
+            if (!container) return;
+
+            const petalCount = 16;
+            const symbols = ["❀", "✿", "❁"];
+
+            for (let i = 0; i < petalCount; i++) {
+                const petal = document.createElement("span");
+                petal.className = "petal";
+                petal.textContent = symbols[i % symbols.length];
+                petal.style.left = Math.random() * 100 + "%";
+                petal.style.fontSize = (13 + Math.random() * 8) + "px";
+                petal.style.animationDuration = (8 + Math.random() * 7) + "s";
+                petal.style.animationDelay = (Math.random() * 8) + "s";
+                container.appendChild(petal);
+            }
+        })();
+    </script>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

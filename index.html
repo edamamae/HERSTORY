@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>The Essence of Her | Personal Profile</title>
+
+    <link rel="icon" type="image/png" href="reading.png">
+
+    <!-- PRELOAD SAVED NIGHT MODE -->
+    <script>
+        try {
+            if (localStorage.getItem("herstory_night_mode") === "true") {
+                document.documentElement.classList.add("night-mode");
+            }
+        } catch (error) {
+            console.log("Unable to load saved theme.");
+        }
+    </script>
+
+    <link rel="stylesheet" href="style1.css">
+
+    <style>
+        .welcome-popup-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0);
+            backdrop-filter: blur(0px);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            transition: background 0.3s ease, backdrop-filter 0.3s ease;
+        }
+
+        .welcome-popup-overlay.is-open {
+            display: flex;
+            background: rgba(0, 0, 0, 0.45);
+            backdrop-filter: blur(5px);
+        }
+
+        .welcome-popup-card {
+            position: relative;
+            max-width: 420px;
+            width: 100%;
+            padding: 30px 26px 26px;
+            border-radius: 22px;
+            border: 1px solid rgba(255, 255, 255, 0.65);
+            background: #ffffff;
+            color: inherit;
+            box-shadow: 0 22px 50px rgba(0, 0, 0, 0.22);
+            text-align: center;
+            opacity: 0;
+            transform: scale(0.76) translateY(18px);
+        }
+
+        .welcome-popup-overlay.is-active .welcome-popup-card {
+            opacity: 1;
+            animation: popupPopIn 0.48s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        .welcome-popup-overlay.is-closing .welcome-popup-card {
+            animation: popupPopOut 0.22s ease-in forwards;
+        }
+
+        @keyframes popupPopIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.76) translateY(18px);
+            }
+            65% {
+                opacity: 1;
+                transform: scale(1.04) translateY(-3px);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        @keyframes popupPopOut {
+            0% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(0.88) translateY(10px);
+            }
+        }
+
+        html.night-mode .welcome-popup-card,
+        body.night-mode .welcome-popup-card {
+            background: #1e1e26;
+            border-color: rgba(255, 255, 255, 0.14);
+        }
+
+        .welcome-popup-badge {
+            display: inline-block;
+            margin-bottom: 10px;
+            padding: 4px 12px;
+            border-radius: 999px;
+            font-size: 0.78rem;
+            letter-spacing: 0.04em;
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        html.night-mode .welcome-popup-badge,
+        body.night-mode .welcome-popup-badge {
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .welcome-popup-close {
+            position: absolute;
+            top: 12px;
+            right: 14px;
+            background: transparent;
+            border: none;
+            color: inherit;
+            font-size: 1.5rem;
+            line-height: 1;
+            cursor: pointer;
+            padding: 4px 8px;
+            border-radius: 50%;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        .welcome-popup-close:hover {
+            transform: scale(1.15);
+            opacity: 0.75;
+        }
+
+        .welcome-popup-title {
+            margin: 0 0 10px;
+            font-size: 1.38rem;
+        }
+
+        .welcome-popup-text {
+            margin: 0 0 22px;
+            font-size: 0.98rem;
+            line-height: 1.58;
+        }
+
+        .welcome-popup-btn {
+            cursor: pointer;
+            padding: 10px 24px;
+            border-radius: 999px;
+            border: 1px solid currentColor;
+            background: transparent;
+            color: inherit;
+            font-size: 0.95rem;
+            transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.2s ease;
+        }
+
+        .welcome-popup-btn:hover {
+            transform: translateY(-2px) scale(1.03);
+        }
+
+        .welcome-popup-btn:active {
+            transform: scale(0.96);
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- WELCOME POPUP NOTIFICATION (INDEX.HTML ONLY) -->
+    <div class="welcome-popup-overlay" id="welcomePopup" role="dialog" aria-modal="true" aria-labelledby="welcomePopupTitle">
+        <div class="welcome-popup-card">
+            <button type="button" class="welcome-popup-close" id="closeWelcomePopupX" aria-label="Close welcome popup">&times;</button>
+            <div class="welcome-popup-badge">𐙚 HERSTORY 𓍯𓂃</div>
+            <h2 class="welcome-popup-title" id="welcomePopupTitle">Hey There!</h2>
+            <p class="welcome-popup-text">
+                Welcome to HERSTORY — a little space to wander through Felicia's life and get to know her.
+            </p>
+            <button type="button" class="welcome-popup-btn" id="closeWelcomePopupBtn">Start Exploring &rarr;</button>
+        </div>
+    </div>
+
+    <!-- SCROLL PROGRESS INDICATOR -->
+    <div id="scroll-progress"></div>
+
+    <!-- DAY / NIGHT MODE TOGGLE BUTTON -->
+    <button type="button" class="night-toggle-btn" id="nightToggleBtn" aria-label="Toggle Day or Night Mode">
+        <span class="night-icon" id="nightIcon">&#9728;</span>
+        <span id="nightLabel">Night Mode</span>
+    </button>
+
+    <!-- FALLING FLOWER PETALS -->
+    <div class="petal-container"></div>
+
+
+    <!-- NAVBAR -->
+    <header>
+
+        <nav class="navbar">
+
+            <div class="logo">
+                𐙚 HERSTORY 𓍯𓂃
+            </div>
+
+            <ul class="nav-links">
+
+                <li>
+                    <a href="index.html" class="active">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="about.html">
+                        About
+                    </a>
+                </li>
+
+                <li>
+                    <a href="family.html">
+                        Family
+                    </a>
+                </li>
+
+                <li>
+                    <a href="journey.html">
+                        Journey
+                    </a>
+                </li>
+
+                <li>
+                    <a href="passion.html">
+                        Passions
+                    </a>
+                </li>
+
+                <li>
+                    <a href="gallery.html">
+                        Gallery
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+    <main>
+
+        <!-- HERO SECTION -->
+        <section class="hero">
+
+            <div class="hero-text">
+
+                <h1>
+                    Every life has
+                    <span>a story.</span>
+                </h1>
+
+                <p class="hero-description">
+                    Step into her world and discover the people she cherishes,
+                    the experiences that shape her, and the little moments
+                    that make her who she is.<br>
+
+                    Explore each page, uncover the memories, and discover
+                    the chapters that make her story uniquely her own.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             INTRODUCTION + GALLERY
+        ========================================== -->
+
+        <section class="intro-gallery">
+
+
+            <!-- INTRODUCTION -->
+
+            <div class="introduction">
+
+                <div class="section-label">
+                    A little introduction to
+                </div>
+
+                <img
+                    src="tedy.gif"
+                    alt="Animated decoration"
+                    class="intro-gif"
+                >
+
+                <h2>
+                    Who is Felicia?
+                </h2>
+
+                <p class="description">
+                    Every experience shapes a story. Step into Felicia’s world
+                    and discover her family, personal journey, passions, and
+                    cherished memories. Explore each page and uncover the
+                    little moments that make her story unique.
+                </p>
+
+                <a href="about.html" class="button intro-button">
+                    Learn About Her &rarr;
+                </a>
+
+            </div>
+
+
+            <!-- GALLERY -->
+
+            <div class="gallery-preview">
+
+                <p class="section-label">
+                    Memories worth keeping
+                </p>
+
+                <img
+                    src="photos.gif"
+                    alt="Animated decoration"
+                    class="intro-gif"
+                >
+
+                <h2>
+                    A Picture Tells a Story
+                </h2>
+
+                <p>
+                    Every photo captures a moment that becomes
+                    part of the story.
+                </p>
+
+                <a href="gallery.html" class="button">
+                    Visit My Gallery &rarr;
+                </a>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =========================================
+             HIGHLIGHTS
+        ========================================== -->
+
+        <section class="highlights">
+
+            <p class="section-label">
+                The Story Continues
+            </p>
+
+            <h2>
+                Discover More Of Her Story Here
+            </h2>
+
+
+            <div class="highlight-grid">
+
+
+                <!-- FAMILY -->
+
+                <article class="highlight-card">
+
+                    <div class="card-icon">
+                        <img src="home.gif" alt="Family decoration">
+                    </div>
+
+                    <h3>
+                        Family
+                    </h3>
+
+                    <p>
+                        Get to know the people who hold a special place in
+                        her heart and the family bonds that make her life
+                        meaningful.
+                    </p>
+
+                    <a href="family.html" class="text-link">
+                        Meet Her Family &rarr;
+                    </a>
+
+                </article>
+
+
+                <!-- JOURNEY -->
+
+                <article class="highlight-card">
+
+                    <div class="card-icon">
+                        <img src="grow.gif" alt="Journey decoration">
+                    </div>
+
+                    <h3>
+                        Journey
+                    </h3>
+
+                    <p>
+                        From childhood memories to new beginnings, discover
+                        the experiences that have made her who she is today.
+                    </p>
+
+                    <a href="journey.html" class="text-link">
+                        Her Journey &rarr;
+                    </a>
+
+                </article>
+
+
+                <!-- PASSIONS -->
+
+                <article class="highlight-card">
+
+                    <div class="card-icon">
+                        <img src="passion.gif" alt="Passions decoration">
+                    </div>
+
+                    <h3>
+                        Passions
+                    </h3>
+
+                    <p>
+                        A collection of passions, favourite activities, and
+                        simple pleasures that make her world uniquely hers.
+                    </p>
+
+                    <a href="passion.html" class="text-link">
+                        Her Little Joys &rarr;
+                    </a>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- DAY / NIGHT MODE TOGGLE SCRIPT -->
+    <script>
+        (function () {
+            const toggleBtn = document.getElementById("nightToggleBtn");
+            const nightIcon = document.getElementById("nightIcon");
+            const nightLabel = document.getElementById("nightLabel");
+
+            function syncThemeButton(isNight) {
+                document.documentElement.classList.toggle("night-mode", isNight);
+                document.body.classList.toggle("night-mode", isNight);
+                if (isNight) {
+                    nightIcon.innerHTML = "&#9790;";
+                    nightLabel.textContent = "Day Mode";
+                } else {
+                    nightIcon.innerHTML = "&#9728;";
+                    nightLabel.textContent = "Night Mode";
+                }
+            }
+
+            let isNightMode = false;
+            try {
+                isNightMode = localStorage.getItem("herstory_night_mode") === "true";
+            } catch (error) {
+                isNightMode = false;
+            }
+            syncThemeButton(isNightMode);
+
+            toggleBtn.addEventListener("click", function () {
+                isNightMode = !document.documentElement.classList.contains("night-mode");
+                syncThemeButton(isNightMode);
+                try {
+                    localStorage.setItem("herstory_night_mode", String(isNightMode));
+                } catch (error) {
+                    console.log("Unable to save theme.");
+                }
+            });
+        })();
+    </script>
+
+    <!-- WELCOME POPUP SCRIPT -->
+    <script>
+        (function () {
+            const popup = document.getElementById("welcomePopup");
+            const closeX = document.getElementById("closeWelcomePopupX");
+            const closeBtn = document.getElementById("closeWelcomePopupBtn");
+            if (!popup) return;
+
+            function openPopup() {
+                popup.classList.remove("is-closing");
+                popup.classList.add("is-open");
+                requestAnimationFrame(function () {
+                    requestAnimationFrame(function () {
+                        popup.classList.add("is-active");
+                    });
+                });
+            }
+
+            function hidePopup() {
+                if (!popup.classList.contains("is-open") || popup.classList.contains("is-closing")) return;
+                popup.classList.remove("is-active");
+                popup.classList.add("is-closing");
+                setTimeout(function () {
+                    popup.classList.remove("is-open", "is-closing");
+                }, 220);
+            }
+
+            try {
+                if (!sessionStorage.getItem("herstory_popup_shown")) {
+                    sessionStorage.setItem("herstory_popup_shown", "true");
+                    openPopup();
+                }
+            } catch (error) {
+                openPopup();
+            }
+
+            if (closeX) closeX.addEventListener("click", hidePopup);
+            if (closeBtn) closeBtn.addEventListener("click", hidePopup);
+
+            popup.addEventListener("click", function (event) {
+                if (event.target === popup) {
+                    hidePopup();
+                }
+            });
+        })();
+    </script>
+
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
+
+</body>
+</html>

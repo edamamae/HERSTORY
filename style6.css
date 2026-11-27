@@ -1,0 +1,1376 @@
+
+/* ==========================================
+   BASE, HEADER & FOOTER
+========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    background-color: #F8F5E8;
+    overscroll-behavior-y: none;
+    overflow-x: clip;
+    max-width: 100%;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #594333;
+    line-height: 1.7;
+    text-align: center;
+    padding-top: 108px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+a {
+    color: #594333;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+header {
+    background-color: #F8F5E8;
+    border-bottom: 1px solid #D9D8B2;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.navbar {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 0;
+    letter-spacing: 5px;
+    color: #594333;
+    transition: color 0.25s ease;
+}
+
+.logo span {
+    color: #81772F;
+}
+
+.logo:hover {
+    color: #81772F;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    list-style: none;
+    flex-wrap: wrap;
+    padding: 2px;
+}
+
+.nav-links a {
+    display: block;
+    padding: 6px 12px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #594333;
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.nav-links a:hover {
+    background-color: #D9D8B2;
+    color: #594333;
+    transform: translateY(-2px);
+}
+
+.nav-links a.active {
+    background-color: #E8E085;
+    color: #594333;
+    box-shadow: 0 3px 10px rgba(89, 67, 51, 0.08);
+}
+
+footer {
+    background-color: #594333;
+    color: #F8F5E8;
+    text-align: center;
+    padding: 28px 20px;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+footer p {
+    max-width: 750px;
+    margin: 8px auto;
+    font-size: 12px;
+    line-height: 1.8;
+    text-align: center;
+}
+
+footer a {
+    color: #E8E085;
+    transition: opacity 0.25s ease;
+}
+
+footer a:hover {
+    opacity: 0.7;
+}
+
+
+/* ==========================================
+   SCROLL PROGRESS
+========================================== */
+
+#scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 4px;
+    background-color: #81772F;
+    z-index: 2000;
+    transform-origin: left;
+}
+
+
+/* ==========================================
+   GALLERY HERO
+========================================== */
+
+.gallery-hero {
+    min-height: 520px;
+    padding: 60px 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+
+    background-image:
+        linear-gradient(
+            rgba(89, 67, 51, 0.55),
+            rgba(89, 67, 51, 0.55)
+        ),
+        url("whity3.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.gallery-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: #594333;
+    opacity: 0.22;
+
+    background-image:
+        radial-gradient(
+            rgba(248, 245, 232, 0.35) 1px,
+            transparent 0
+        );
+
+    background-size: 4px 4px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.gallery-hero-content {
+    max-width: 720px;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    transform: translateY(5px);
+}
+
+.gallery-label {
+    color: #E8E085;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.gallery-decoration {
+    margin: 12px 0 6px;
+    font-size: 36px;
+    color: #E8E085;
+}
+
+.gallery-hero h1 {
+    color: #F8F5E8;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(50px, 7vw, 75px);
+    font-weight: normal;
+    line-height: 1.1;
+    margin: 0 0 20px;
+}
+
+.gallery-hero-line {
+    width: 60px;
+    height: 2px;
+    background-color: #E8E085;
+    margin: 0 auto 20px;
+}
+
+.gallery-intro {
+    max-width: 650px;
+    margin: 0 auto;
+    color: #F8F5E8;
+    line-height: 1.9;
+    font-size: 15px;
+    text-align: justify;
+    text-align-last: center;
+}
+
+
+/* ==========================================
+   GALLERY SHOWCASE
+========================================== */
+
+.gallery-section {
+    padding: 90px 30px 85px;
+    background-color: #F8F5E8;
+}
+
+.gallery-heading {
+    text-align: center;
+    max-width: 780px;
+    width: 100%;
+    margin: 0 auto 35px;
+}
+
+.gallery-section-label {
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #81772F;
+    margin-bottom: 10px;
+}
+
+.gallery-heading h2 {
+    color: #594333;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 42px;
+    font-weight: normal;
+    line-height: 1.3;
+    margin: 12px 0 16px;
+}
+
+.gallery-heading p {
+    color: #594333;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+
+/* ==========================================
+   CATEGORY TABS
+========================================== */
+
+.gallery-tabs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    max-width: 760px;
+    width: 100%;
+    margin: 28px auto 38px;
+}
+
+.gallery-tab {
+    padding: 11px 24px;
+    border: 1px solid #D9D8B2;
+    border-radius: 30px;
+    background-color: #F3EEDC;
+    color: #594333;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.gallery-tab:hover {
+    background-color: #D9D8B2;
+    transform: translateY(-2px);
+}
+
+.gallery-tab.active {
+    background-color: #E8E085;
+    border-color: #C7C69F;
+    color: #594333;
+    box-shadow: 0 4px 12px rgba(89, 67, 51, 0.08);
+}
+
+
+/* ==========================================
+   MATTED STAGE
+========================================== */
+
+.gallery-stage {
+    max-width: 1050px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 42px 35px 38px;
+    background-color: #F3EEDC;
+    border: 1px solid #D9D8B2;
+    border-radius: 20px;
+    box-shadow: 0 10px 28px rgba(89, 67, 51, 0.06);
+}
+
+.gallery-slideshow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 22px;
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto 20px;
+}
+
+
+/* ==========================================
+   INTERACTIVE POLAROID FRAME
+========================================== */
+
+.gallery-slide.polaroid {
+    position: relative;
+    width: 100%;
+    max-width: 650px;
+    min-width: 0;
+    flex: 1;
+
+    height: auto;
+    padding: 30px 30px 24px;
+
+    background-color: #FFFDF6;
+    border: 1px solid #E5DDCC;
+    border-radius: 3px;
+
+    box-shadow: 3px 6px 15px rgba(89, 67, 51, 0.13);
+
+    overflow: visible;
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        background-color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.gallery-slide.polaroid:hover {
+    transform: translateY(-7px) rotate(-1deg);
+    box-shadow: 5px 12px 22px rgba(89, 67, 51, 0.2);
+}
+
+.gallery-slide.polaroid img {
+    width: calc(100% - 16px);
+    max-width: 100%;
+    height: 360px;
+    margin: 0 auto;
+
+    display: block;
+    object-fit: cover;
+    border-radius: 0;
+
+    cursor: pointer;
+
+    transition: transform 0.35s ease;
+}
+
+.gallery-slide.polaroid img:hover {
+    transform: scale(0.985);
+}
+
+
+/* ==========================================
+   POLAROID CAPTION
+========================================== */
+
+.gallery-photo-caption {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    right: auto;
+
+    padding: 18px 12px 5px;
+
+    border-radius: 0;
+
+    color: #594333;
+    background: none;
+
+    text-align: center;
+}
+
+.gallery-caption-tag {
+    display: block;
+    font-size: 9px;
+    font-weight: bold;
+    letter-spacing: 2.5px;
+    color: #81772F;
+    margin-bottom: 6px;
+}
+
+.gallery-photo-caption p {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-style: italic;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    color: #594333;
+    line-height: 1.7;
+}
+
+.polaroid-decoration {
+    display: block;
+    text-align: right;
+    color: #B9A58A;
+    font-size: 18px;
+    margin-top: 5px;
+}
+
+
+/* ==========================================
+   GALLERY ARROWS
+========================================== */
+
+.gallery-arrow {
+    width: 46px;
+    height: 46px;
+    flex-shrink: 0;
+
+    border: 1px solid #C7C69F;
+    border-radius: 50%;
+
+    background-color: #F8F5E8;
+    color: #594333;
+
+    font-size: 18px;
+    cursor: pointer;
+
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.gallery-arrow:hover {
+    background-color: #E8E085;
+    color: #594333;
+    transform: translateY(-2px);
+}
+
+
+/* ==========================================
+   GALLERY COUNTER
+========================================== */
+
+.gallery-counter {
+    text-align: center;
+    margin: 14px 0 22px;
+    color: #81772F;
+    font-family: Georgia, "Times New Roman", serif;
+    font-style: italic;
+    font-size: 14px;
+    letter-spacing: 3px;
+}
+
+
+/* ==========================================
+   THUMBNAIL FILMSTRIP
+========================================== */
+
+.gallery-thumbnails {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.gallery-thumb {
+    width: 68px;
+    height: 52px;
+    padding: 3px;
+
+    border: 2px solid #D9D8B2;
+    border-radius: 10px;
+
+    background-color: #F8F5E8;
+
+    cursor: pointer;
+    overflow: hidden;
+    opacity: 0.72;
+
+    transition:
+        background-color 0.25s ease,
+        border-color 0.25s ease,
+        opacity 0.25s ease,
+        transform 0.25s ease;
+}
+
+.gallery-thumb:hover {
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
+.gallery-thumb.active {
+    opacity: 1;
+    border-color: #81772F;
+    box-shadow: 0 4px 10px rgba(89, 67, 51, 0.14);
+}
+
+.gallery-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 7px;
+    display: block;
+}
+
+
+/* ==========================================
+   POLAROID IMAGE LIGHTBOX
+========================================== */
+
+.gallery-lightbox {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(35, 27, 21, 0.88);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 25px;
+
+    z-index: 10002;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+}
+
+.gallery-lightbox.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox-content {
+    max-width: 550px;
+    width: 90%;
+
+    background-color: #FFFDF6;
+    padding: 15px 15px 25px;
+
+    text-align: center;
+
+    transform: scale(0.85);
+    transition: transform 0.3s ease;
+}
+
+.gallery-lightbox.active .lightbox-content {
+    transform: scale(1);
+}
+
+.lightbox-content img {
+    width: 100%;
+    max-height: 65vh;
+
+    object-fit: contain;
+    display: block;
+}
+
+.lightbox-content p {
+    color: #594333;
+    font-family: Georgia, "Times New Roman", serif;
+    font-style: italic;
+    margin-top: 18px;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+
+    color: white;
+    font-size: 35px;
+
+    cursor: pointer;
+
+    background: none;
+    border: none;
+}
+
+
+/* ==========================================
+   FINAL KEEPSAKE ENDING
+========================================== */
+
+.gallery-ending {
+    padding: 75px 24px 85px;
+    background-color: #F8F5E8;
+    border-top: 1px solid #D9D8B2;
+}
+
+.gallery-ending-card {
+    text-align: center;
+    max-width: 660px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 44px 34px;
+
+    background-color: #F3EEDC;
+    border: 1px solid #C7C69F;
+    border-radius: 18px;
+
+    box-shadow: 0 8px 24px rgba(89, 67, 51, 0.06);
+
+    color: #594333;
+}
+
+.gallery-ending-icon {
+    display: block;
+    font-size: 30px;
+    color: #81772F;
+    margin-bottom: 12px;
+}
+
+.gallery-ending-card h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 34px;
+    font-weight: normal;
+    line-height: 1.35;
+    margin: 10px 0 16px;
+}
+
+.gallery-ending-card p {
+    font-size: 14px;
+    line-height: 1.85;
+    max-width: 540px;
+    margin: 0 auto;
+}
+
+.gallery-ending-line {
+    display: block;
+    width: 70px;
+    height: 1px;
+    background-color: #C7C69F;
+    margin: 24px auto 18px;
+}
+
+.gallery-ending-note {
+    letter-spacing: 2px;
+    font-style: italic;
+    font-family: Georgia, "Times New Roman", serif;
+    color: #81772F !important;
+}
+
+.gallery-ending-btn {
+    display: inline-block;
+    margin-top: 24px;
+    padding: 12px 26px;
+
+    border-radius: 30px;
+
+    background-color: #E8E085;
+    color: #594333;
+
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.gallery-ending-btn:hover {
+    background-color: #81772F;
+    color: #F8F5E8;
+    transform: translateY(-2px);
+}
+
+
+/* ==========================================
+   FALLING FLOWER PETALS
+========================================== */
+
+.petal-container {
+    position: fixed;
+    inset: 0;
+
+    overflow: hidden;
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+.petal {
+    position: absolute;
+    top: -30px;
+
+    color: #B9A58A;
+    opacity: 0.65;
+
+    pointer-events: none;
+    will-change: transform;
+
+    animation: fallingPetals linear infinite;
+}
+
+@keyframes fallingPetals {
+
+    0% {
+        transform: translateY(-30px) rotate(0deg);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 0.65;
+    }
+
+    85% {
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
+
+}
+
+
+/* KEEP CONTENT ABOVE FALLING PETALS */
+
+body > header,
+body > main,
+body > footer {
+    position: relative;
+    z-index: 1;
+}
+
+body > header {
+    position: fixed;
+    z-index: 1000;
+}
+
+
+/* =====================================
+   FIXED NIGHT MODE BUTTON
+===================================== */
+
+.night-toggle-btn {
+    position: fixed;
+    top: 14px;
+    left: 18px;
+    z-index: 1002;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px;
+    border: 1px solid #C8B998;
+    border-radius: 999px;
+    background-color: #F6EFE0;
+    color: #523B2B;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 0.6px;
+    box-shadow: 0 2px 8px rgba(82, 59, 43, 0.12);
+    cursor: pointer;
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.night-toggle-btn:hover {
+    background-color: #E5D4A7;
+    border-color: #8A6F3B;
+    color: #463122;
+}
+
+.night-toggle-btn .night-icon {
+    font-size: 13px;
+    line-height: 1;
+    color: #8A6F3B;
+}
+
+
+/* =====================================
+   NIGHT MODE: BALANCED BROWN & BEIGE
+===================================== */
+
+html.night-mode,
+html.night-mode body,
+body.night-mode {
+    background-color: #221A14;
+    color: #EADBC2;
+}
+
+html.night-mode header,
+body.night-mode header {
+    background-color: #221A14;
+    border-bottom-color: #3F2F24;
+}
+
+html.night-mode .logo,
+html.night-mode .nav-links a,
+body.night-mode .logo,
+body.night-mode .nav-links a {
+    color: #EADBC2;
+}
+
+html.night-mode .logo:hover,
+html.night-mode .logo span,
+body.night-mode .logo:hover,
+body.night-mode .logo span {
+    color: #D8BE8B;
+}
+
+html.night-mode .nav-links a:hover,
+body.night-mode .nav-links a:hover {
+    background-color: #37291F;
+    color: #F4E9D4;
+}
+
+html.night-mode .nav-links a.active,
+body.night-mode .nav-links a.active {
+    background-color: #786030;
+    color: #F5ECDA;
+    border: none;
+}
+
+
+/* NIGHT MODE BUTTON */
+
+html.night-mode .night-toggle-btn,
+body.night-mode .night-toggle-btn {
+    background-color: #2F231B;
+    border-color: #967B44;
+    color: #E8D5B0;
+    box-shadow: 0 2px 8px rgba(20, 14, 10, 0.32);
+}
+
+html.night-mode .night-toggle-btn:hover,
+body.night-mode .night-toggle-btn:hover {
+    background-color: #786030;
+    border-color: #D8BE8B;
+    color: #F5ECDA;
+}
+
+html.night-mode .night-toggle-btn .night-icon,
+body.night-mode .night-toggle-btn .night-icon {
+    color: #DFC285;
+}
+
+
+/* NIGHT MODE HERO */
+
+html.night-mode .gallery-hero,
+body.night-mode .gallery-hero {
+    background-color: #281E17;
+    background-image:
+        linear-gradient(
+            rgba(34, 26, 20, 0.72),
+            rgba(34, 26, 20, 0.72)
+        ),
+        url("whity3.jpg");
+}
+
+html.night-mode .gallery-hero::after,
+body.night-mode .gallery-hero::after {
+    background-color: #221913;
+    opacity: 0.22;
+}
+
+
+/* NIGHT MODE GALLERY BACKGROUNDS */
+
+html.night-mode .gallery-section,
+html.night-mode .gallery-ending,
+body.night-mode .gallery-section,
+body.night-mode .gallery-ending {
+    background-color: #221A14;
+    border-color: #3F2F24;
+}
+
+html.night-mode .gallery-stage,
+html.night-mode .gallery-ending-card,
+body.night-mode .gallery-stage,
+body.night-mode .gallery-ending-card {
+    background-color: #33261D;
+    border-color: #4E3B2E;
+}
+
+
+/* NIGHT MODE POLAROID AND LIGHTBOX */
+
+html.night-mode .gallery-slide.polaroid,
+html.night-mode .lightbox-content,
+body.night-mode .gallery-slide.polaroid,
+body.night-mode .lightbox-content {
+    background-color: #3C2D23;
+    border-color: #564234;
+}
+
+
+/* NIGHT MODE TABS, ARROWS AND THUMBNAILS */
+
+html.night-mode .gallery-tab,
+html.night-mode .gallery-arrow,
+html.night-mode .gallery-thumb,
+body.night-mode .gallery-tab,
+body.night-mode .gallery-arrow,
+body.night-mode .gallery-thumb {
+    background-color: #3C2D23;
+    border-color: #564234;
+    color: #EADBC2;
+}
+
+html.night-mode .gallery-tab.active,
+html.night-mode .gallery-tab:hover,
+html.night-mode .gallery-arrow:hover,
+body.night-mode .gallery-tab.active,
+body.night-mode .gallery-tab:hover,
+body.night-mode .gallery-arrow:hover {
+    background-color: #786030;
+    border-color: #D8BE8B;
+    color: #F5ECDA;
+}
+
+
+/* NIGHT MODE TEXT */
+
+html.night-mode .gallery-heading h2,
+html.night-mode .gallery-heading p,
+html.night-mode .gallery-photo-caption p,
+html.night-mode .lightbox-content p,
+html.night-mode .gallery-ending-card h2,
+html.night-mode .gallery-ending-card p,
+body.night-mode .gallery-heading h2,
+body.night-mode .gallery-heading p,
+body.night-mode .gallery-photo-caption p,
+body.night-mode .lightbox-content p,
+body.night-mode .gallery-ending-card h2,
+body.night-mode .gallery-ending-card p {
+    color: #EADBC2;
+}
+
+
+/* NIGHT MODE DECORATIVE DETAILS */
+
+html.night-mode .gallery-section-label,
+html.night-mode .gallery-caption-tag,
+html.night-mode .gallery-counter,
+html.night-mode .gallery-ending-note,
+html.night-mode .gallery-ending-icon,
+body.night-mode .gallery-section-label,
+body.night-mode .gallery-caption-tag,
+body.night-mode .gallery-counter,
+body.night-mode .gallery-ending-note,
+body.night-mode .gallery-ending-icon {
+    color: #D8BE8B !important;
+}
+
+html.night-mode .gallery-editorial-line,
+html.night-mode .gallery-ending-line,
+body.night-mode .gallery-editorial-line,
+body.night-mode .gallery-ending-line {
+    background-color: #786030;
+}
+
+html.night-mode .polaroid-decoration,
+body.night-mode .polaroid-decoration {
+    color: #C4AA7E;
+}
+
+
+/* NIGHT MODE ENDING BUTTON */
+
+html.night-mode .gallery-ending-btn,
+body.night-mode .gallery-ending-btn {
+    background-color: #786030;
+    color: #F5ECDA;
+}
+
+html.night-mode .gallery-ending-btn:hover,
+body.night-mode .gallery-ending-btn:hover {
+    background-color: #D8BE8B;
+    color: #241A14;
+}
+
+
+/* NIGHT MODE PETALS */
+
+html.night-mode .petal,
+body.night-mode .petal {
+    color: #C4AA7E;
+}
+
+
+/* NIGHT MODE FOOTER */
+
+html.night-mode footer,
+body.night-mode footer {
+    background-color: #19130F;
+    color: #E2CEAE;
+    border-top: 1px solid #35271E;
+}
+
+html.night-mode footer a,
+body.night-mode footer a {
+    color: #D8BE8B;
+}
+
+
+/* ==========================================
+   RESPONSIVE: TABLETS
+========================================== */
+
+@media (max-width: 950px) {
+
+    body {
+        padding-top: 86px;
+    }
+
+    .navbar {
+        padding: 9px 25px;
+        gap: 7px;
+    }
+
+    .nav-links {
+        gap: 4px;
+        justify-content: center;
+    }
+
+    .nav-links a {
+        padding: 6px 11px;
+    }
+
+    .gallery-stage {
+        max-width: 95%;
+    }
+
+}
+
+
+/* ==========================================
+   RESPONSIVE: SMALL TABLETS
+========================================== */
+
+@media (max-width: 768px) {
+
+    .gallery-hero {
+        min-height: 400px;
+        padding: 70px 20px;
+    }
+
+    .gallery-hero h1 {
+        font-size: 40px;
+    }
+
+    .gallery-section {
+        padding: 65px 20px 70px;
+    }
+
+    .gallery-heading {
+        margin-bottom: 30px;
+    }
+
+    .gallery-heading h2,
+    .gallery-ending-card h2 {
+        font-size: 34px;
+    }
+
+    .gallery-heading p {
+        font-size: 14px;
+    }
+
+    .gallery-stage {
+        padding: 28px 20px 26px;
+    }
+
+    .gallery-slideshow {
+        gap: 12px;
+    }
+
+    .gallery-slide.polaroid {
+        padding: 22px 20px 18px;
+    }
+
+    .gallery-slide.polaroid img {
+        width: calc(100% - 12px);
+        height: 280px;
+    }
+
+    .gallery-arrow {
+        width: 38px;
+        height: 38px;
+        font-size: 14px;
+    }
+
+    .gallery-ending {
+        padding: 60px 20px 70px;
+    }
+
+}
+
+
+/* ==========================================
+   RESPONSIVE: MOBILE
+========================================== */
+
+@media (max-width: 650px) {
+
+    body {
+        padding-top: 88px;
+    }
+
+    .navbar {
+        padding: 8px 12px;
+        gap: 7px;
+    }
+
+    .logo {
+        font-size: 22px;
+        letter-spacing: 3px;
+    }
+
+    .nav-links {
+        gap: 3px;
+        width: 100%;
+    }
+
+    .nav-links a {
+        font-size: 10px;
+        padding: 5px 8px;
+    }
+
+    footer {
+        padding: 28px 20px;
+    }
+
+    .night-toggle-btn {
+        top: 10px;
+        left: 10px;
+        padding: 5px 10px;
+        font-size: 10px;
+        gap: 4px;
+    }
+
+    .gallery-stage {
+        max-width: 100%;
+    }
+
+}
+
+
+/* ==========================================
+   RESPONSIVE: SMALL MOBILE
+========================================== */
+
+@media (max-width: 480px) {
+
+    .gallery-hero {
+        min-height: 360px;
+        padding: 60px 18px;
+    }
+
+    .gallery-hero h1 {
+        font-size: 36px;
+    }
+
+    .gallery-label {
+        font-size: 9px;
+        letter-spacing: 3px;
+    }
+
+    .gallery-intro {
+        font-size: 13px;
+    }
+
+    .gallery-section {
+        padding: 50px 14px 60px;
+    }
+
+    .gallery-heading h2 {
+        font-size: 29px;
+    }
+
+    .gallery-heading p {
+        font-size: 13px;
+    }
+
+    .gallery-tabs {
+        gap: 8px;
+        margin: 22px auto 28px;
+    }
+
+    .gallery-tab {
+        padding: 9px 16px;
+        font-size: 11px;
+    }
+
+    .gallery-stage {
+        padding: 20px 10px;
+        border-radius: 15px;
+    }
+
+    .gallery-slideshow {
+        gap: 8px;
+    }
+
+    .gallery-slide.polaroid {
+        padding: 14px 12px 14px;
+    }
+
+    .gallery-slide.polaroid img {
+        width: calc(100% - 8px);
+        height: 210px;
+    }
+
+    .gallery-photo-caption {
+        padding: 13px 8px 4px;
+    }
+
+    .gallery-photo-caption p {
+        font-size: 12px;
+    }
+
+    .gallery-arrow {
+        width: 32px;
+        height: 32px;
+        font-size: 12px;
+    }
+
+    .gallery-counter {
+        font-size: 12px;
+        letter-spacing: 2px;
+    }
+
+    .gallery-thumb {
+        width: 54px;
+        height: 42px;
+    }
+
+    .gallery-ending {
+        padding: 50px 14px 60px;
+    }
+
+    .gallery-ending-card {
+        padding: 32px 20px;
+    }
+
+    .gallery-ending-card h2 {
+        font-size: 25px;
+    }
+
+    .gallery-ending-card p {
+        font-size: 13px;
+    }
+
+    .lightbox-content {
+        width: 100%;
+    }
+
+    .lightbox-close {
+        top: 12px;
+        right: 18px;
+    }
+
+}
+
+
+/* ==========================================
+   EXTRA SMALL SCREENS
+========================================== */
+
+@media (max-width: 360px) {
+
+    .logo {
+        font-size: 19px;
+        letter-spacing: 2px;
+    }
+
+    .nav-links {
+        gap: 2px;
+    }
+
+    .nav-links a {
+        font-size: 9px;
+        padding: 5px 6px;
+    }
+
+    .gallery-slide.polaroid img {
+        height: 180px;
+    }
+
+    .gallery-arrow {
+        width: 29px;
+        height: 29px;
+    }
+
+}
+
+
+/* ==========================================
+   ACCESSIBILITY
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .petal {
+        animation: none;
+        display: none;
+    }
+
+    .gallery-slide.polaroid,
+    .lightbox-content,
+    .gallery-lightbox {
+        transition: none;
+    }
+
+}

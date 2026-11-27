@@ -1,0 +1,962 @@
+/* =========================
+   BASE, HEADER & FOOTER
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    background-color: #F8F5E8;
+    overscroll-behavior-y: none;
+    overflow-x: clip;
+    max-width: 100%;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #594333;
+    line-height: 1.7;
+    text-align: center;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+a {
+    color: #594333;
+    text-decoration: none;
+}
+
+/* HEADER & NAVIGATION */
+
+header {
+    background-color: #F8F5E8;
+    border-bottom: 1px solid #D9D8B2;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.navbar {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 0;
+    letter-spacing: 5px;
+    color: #594333;
+    transition: color 0.25s ease;
+}
+
+.logo span {
+    color: #81772F;
+}
+
+.logo:hover {
+    color: #81772F;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    list-style: none;
+    flex-wrap: wrap;
+    padding: 2px;
+}
+
+.nav-links a {
+    display: block;
+    padding: 6px 12px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #594333;
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.nav-links a:hover {
+    background-color: #D9D8B2;
+    color: #594333;
+    transform: translateY(-2px);
+}
+
+.nav-links a.active {
+    background-color: #E8E085;
+    color: #594333;
+    box-shadow: 0 3px 10px rgba(89, 67, 51, 0.08);
+}
+
+/* FOOTER */
+
+footer {
+    background-color: #594333;
+    color: #F8F5E8;
+    text-align: center;
+    padding: 28px 20px;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+footer p {
+    max-width: 750px;
+    margin: 8px auto;
+    font-size: 12px;
+    line-height: 1.8;
+    text-align: center;
+}
+
+footer a {
+    color: #E8E085;
+    transition: opacity 0.25s ease;
+}
+
+footer a:hover {
+    opacity: 0.7;
+}
+
+
+/* =========================
+   PASSION HERO SECTION
+========================= */
+
+.passion-hero {
+    min-height: 500px;
+    padding: 60px 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background-image:
+        linear-gradient(
+            rgba(89, 67, 51, 0.55),
+            rgba(89, 67, 51, 0.55)
+        ),
+        url("brown3.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.passion-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: #594333;
+    opacity: 0.22;
+    background-image:
+        radial-gradient(
+            rgba(248, 245, 232, 0.35) 1px,
+            transparent 0
+        );
+    background-size: 4px 4px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.passion-hero-content {
+    max-width: 720px;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    transform: translateY(5px);
+}
+
+.passion-small-title {
+    font-size: 11px;
+    letter-spacing: 4px;
+    font-weight: bold;
+    color: #E8E085;
+    margin-bottom: 10px;
+}
+
+.passion-flower {
+    font-size: 36px;
+    color: #E8E085;
+    margin: 12px 0 6px;
+}
+
+.passion-hero h1 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(50px, 7vw, 75px);
+    font-weight: normal;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    color: #F8F5E8;
+}
+
+.passion-line {
+    width: 60px;
+    height: 2px;
+    background-color: #E8E085;
+    margin: 0 auto 20px;
+}
+
+.passion-hero-content > p:last-child {
+    max-width: 650px;
+    margin: auto;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    line-height: 1.9;
+    text-align: justify;
+    text-align-last: center;
+    color: #F8F5E8;
+}
+
+
+/* =========================
+   SHARED PASSION STYLES
+========================= */
+
+.section-label {
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #81772F;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.passion-editorial-line {
+    width: 55px;
+    height: 1px;
+    background: #C7C69F;
+    margin: 25px auto;
+}
+
+
+/* =========================
+   PASSION INTRODUCTION
+========================= */
+
+.passion-introduction {
+    padding: 80px 20px;
+    background: #F8F5E8;
+}
+
+.passion-introduction-content {
+    max-width: 750px;
+    margin: auto;
+    text-align: center;
+}
+
+.passion-introduction h2,
+.passion-reflection h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 38px;
+    font-weight: normal;
+    color: #594333;
+    margin: 15px 0;
+}
+
+.passion-introduction-content > p:not(.section-label) {
+    font-size: 14px;
+    line-height: 2;
+    color: #594333;
+    margin: 18px 0;
+}
+
+
+/* =========================
+   PASSION CARDS
+========================= */
+
+.passion-section {
+    padding: 70px 8%;
+    background: #F3EEDC;
+    border-top: 1px solid #D9D8B2;
+}
+
+.passion-alternate {
+    background: #F8F5E8;
+    border-top: 1px solid #D9D8B2;
+}
+
+.passion-card {
+    max-width: 1050px;
+    width: 100%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    background: #F8F5E8;
+    border: 1px solid #D9D8B2;
+    border-radius: 16px;
+    overflow: hidden;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background-color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.passion-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(89, 67, 51, 0.08);
+}
+
+.passion-alternate .passion-card {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    background: #F3EEDC;
+}
+
+.passion-alternate .passion-image {
+    order: 2;
+}
+
+.passion-alternate .passion-content {
+    order: 1;
+}
+
+.passion-image {
+    min-height: 430px;
+    background: #E8E2CE;
+    overflow: hidden;
+}
+
+.passion-image img {
+    width: 100%;
+    height: 100%;
+    min-height: 430px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.passion-card:hover .passion-image img {
+    transform: scale(1.04);
+}
+
+.passion-content {
+    min-width: 0;
+    padding: 55px 45px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.passion-number {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: #81772F;
+}
+
+.passion-content h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 38px;
+    font-weight: normal;
+    color: #594333;
+    margin: 18px 0;
+}
+
+.passion-divider {
+    width: 50px;
+    height: 1px;
+    background: #C7C69F;
+    margin: 5px 0 25px;
+}
+
+.passion-content p {
+    font-size: 13px;
+    line-height: 2;
+    color: #594333;
+    margin: 0 0 18px;
+}
+
+.passion-quote {
+    font-family: Georgia, "Times New Roman", serif;
+    font-style: italic;
+    font-size: 13px;
+    color: #81772F;
+    margin-top: 12px;
+}
+
+
+/* =========================
+   PASSION REFLECTION
+========================= */
+
+.passion-reflection {
+    padding: 100px 20px;
+    background: #F8F5E8;
+    border-top: 1px solid #D9D8B2;
+}
+
+.passion-reflection-content {
+    max-width: 750px;
+    margin: auto;
+    text-align: center;
+}
+
+.passion-reflection-icon {
+    display: block;
+    font-size: 30px;
+    color: #81772F;
+    margin-bottom: 20px;
+}
+
+.passion-reflection-content > p:not(.section-label) {
+    font-size: 14px;
+    line-height: 2;
+    color: #594333;
+    margin: 20px 0;
+}
+
+
+/* =========================
+   PASSION CLOSING SECTION
+========================= */
+
+.passion-closing {
+    padding: 100px 20px;
+    background: #F3EEDC;
+    border-top: 1px solid #D9D8B2;
+    text-align: center;
+}
+
+.passion-closing-content {
+    max-width: 700px;
+    margin: auto;
+}
+
+.passion-closing .closing-icon {
+    font-size: 35px;
+    color: #81772F;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.passion-closing h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 42px;
+    font-weight: normal;
+    line-height: 1.4;
+    color: #594333;
+    margin: 20px 0;
+}
+
+.passion-closing-content > p:not(.section-label) {
+    font-size: 14px;
+    line-height: 2;
+    color: #594333;
+    margin: 20px auto;
+}
+
+.passion-button {
+    display: inline-block;
+    padding: 13px 25px;
+    margin-top: 20px;
+    background: #E8E085;
+    color: #594333;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: bold;
+    transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.passion-button:hover {
+    background: #81772F;
+    color: #F8F5E8;
+}
+
+
+/* =========================
+   SCROLL PROGRESS BAR
+========================= */
+
+#scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    width: 0%;
+    background-color: #81772F;
+    z-index: 10000;
+}
+
+
+/* =========================
+   FALLING FLOWER PETALS
+========================= */
+
+.petal-container {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.petal {
+    position: absolute;
+    top: -30px;
+    color: #B9A58A;
+    opacity: 0.65;
+    animation: fallingPetals linear infinite;
+    pointer-events: none;
+    will-change: transform;
+}
+
+@keyframes fallingPetals {
+    0% {
+        transform: translateY(-30px) rotate(0deg);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 0.65;
+    }
+
+    85% {
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+
+/* =========================
+   NIGHT MODE BUTTON
+========================= */
+
+.night-toggle-btn {
+    position: absolute;
+    top: 14px;
+    left: 18px;
+    z-index: 1002;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px;
+    border: 1px solid #C8B998;
+    border-radius: 999px;
+    background-color: #F6EFE0;
+    color: #523B2B;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 0.6px;
+    box-shadow: 0 2px 8px rgba(82, 59, 43, 0.12);
+    cursor: pointer;
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.night-toggle-btn:hover {
+    background-color: #E5D4A7;
+    border-color: #8A6F3B;
+    color: #463122;
+}
+
+.night-toggle-btn .night-icon {
+    font-size: 13px;
+    line-height: 1;
+    color: #8A6F3B;
+}
+
+
+/* =========================
+   NIGHT MODE
+   BROWN & BEIGE THEME
+========================= */
+
+html.night-mode,
+html.night-mode body,
+body.night-mode {
+    background-color: #221A14;
+    color: #EADBC2;
+}
+
+/* Header and navigation */
+
+html.night-mode header,
+body.night-mode header {
+    background-color: #221A14;
+    border-bottom-color: #3F2F24;
+}
+
+html.night-mode .logo,
+html.night-mode .nav-links a,
+body.night-mode .logo,
+body.night-mode .nav-links a {
+    color: #EADBC2;
+}
+
+html.night-mode .logo:hover,
+html.night-mode .logo span,
+body.night-mode .logo:hover,
+body.night-mode .logo span {
+    color: #D8BE8B;
+}
+
+html.night-mode .nav-links a:hover,
+body.night-mode .nav-links a:hover {
+    background-color: #37291F;
+    color: #F4E9D4;
+}
+
+html.night-mode .nav-links a.active,
+body.night-mode .nav-links a.active {
+    background-color: #786030;
+    color: #F5ECDA;
+    border: none;
+}
+
+/* Night mode button */
+
+html.night-mode .night-toggle-btn,
+body.night-mode .night-toggle-btn {
+    background-color: #2F231B;
+    border-color: #967B44;
+    color: #E8D5B0;
+    box-shadow: 0 2px 8px rgba(20, 14, 10, 0.32);
+}
+
+html.night-mode .night-toggle-btn:hover,
+body.night-mode .night-toggle-btn:hover {
+    background-color: #786030;
+    border-color: #D8BE8B;
+    color: #F5ECDA;
+}
+
+html.night-mode .night-toggle-btn .night-icon,
+body.night-mode .night-toggle-btn .night-icon {
+    color: #DFC285;
+}
+
+/* Passion hero */
+
+html.night-mode .passion-hero,
+body.night-mode .passion-hero {
+    background-color: #281E17;
+    background-image:
+        linear-gradient(
+            rgba(34, 26, 20, 0.72),
+            rgba(34, 26, 20, 0.72)
+        ),
+        url("brown3.jpg");
+}
+
+html.night-mode .passion-hero::after,
+body.night-mode .passion-hero::after {
+    background-color: #221913;
+    opacity: 0.22;
+}
+
+html.night-mode .passion-hero h1,
+html.night-mode .passion-hero-content > p:last-child,
+body.night-mode .passion-hero h1,
+body.night-mode .passion-hero-content > p:last-child {
+    color: #F5ECDA;
+}
+
+html.night-mode .passion-small-title,
+html.night-mode .passion-flower,
+body.night-mode .passion-small-title,
+body.night-mode .passion-flower {
+    color: #DFC285;
+}
+
+html.night-mode .passion-line,
+body.night-mode .passion-line {
+    background-color: #DFC285;
+}
+
+/* Section backgrounds */
+
+html.night-mode .passion-introduction,
+html.night-mode .passion-alternate,
+html.night-mode .passion-reflection,
+body.night-mode .passion-introduction,
+body.night-mode .passion-alternate,
+body.night-mode .passion-reflection {
+    background-color: #221A14;
+    border-color: #3F2F24;
+}
+
+html.night-mode .passion-section,
+html.night-mode .passion-closing,
+body.night-mode .passion-section,
+body.night-mode .passion-closing {
+    background-color: #2A2019;
+    border-color: #3F2F24;
+}
+
+/* Passion cards */
+
+html.night-mode .passion-card,
+html.night-mode .passion-alternate .passion-card,
+body.night-mode .passion-card,
+body.night-mode .passion-alternate .passion-card {
+    background-color: #33261D;
+    border-color: #4E3B2E;
+}
+
+html.night-mode .passion-image,
+body.night-mode .passion-image {
+    background-color: #3C2D23;
+}
+
+/* Dividers */
+
+html.night-mode .passion-editorial-line,
+html.night-mode .passion-divider,
+body.night-mode .passion-editorial-line,
+body.night-mode .passion-divider {
+    background-color: #C5AA78;
+}
+
+/* Main text */
+
+html.night-mode .passion-introduction h2,
+html.night-mode .passion-reflection h2,
+html.night-mode .passion-content h2,
+html.night-mode .passion-closing h2,
+html.night-mode .passion-introduction-content > p:not(.section-label),
+html.night-mode .passion-content p,
+html.night-mode .passion-reflection-content > p:not(.section-label),
+html.night-mode .passion-closing-content > p:not(.section-label),
+body.night-mode .passion-introduction h2,
+body.night-mode .passion-reflection h2,
+body.night-mode .passion-content h2,
+body.night-mode .passion-closing h2,
+body.night-mode .passion-introduction-content > p:not(.section-label),
+body.night-mode .passion-content p,
+body.night-mode .passion-reflection-content > p:not(.section-label),
+body.night-mode .passion-closing-content > p:not(.section-label) {
+    color: #EADBC2;
+}
+
+/* Gold labels and decorative details */
+
+html.night-mode .section-label,
+html.night-mode .passion-number,
+html.night-mode .passion-quote,
+html.night-mode .passion-reflection-icon,
+html.night-mode .passion-closing .closing-icon,
+body.night-mode .section-label,
+body.night-mode .passion-number,
+body.night-mode .passion-quote,
+body.night-mode .passion-reflection-icon,
+body.night-mode .passion-closing .closing-icon {
+    color: #D8BE8B;
+}
+
+/* Passion button */
+
+html.night-mode .passion-button,
+body.night-mode .passion-button {
+    background-color: #786030;
+    color: #F5ECDA;
+}
+
+html.night-mode .passion-button:hover,
+body.night-mode .passion-button:hover {
+    background-color: #D8BE8B;
+    color: #241A14;
+}
+
+/* Falling petals */
+
+html.night-mode .petal,
+body.night-mode .petal {
+    color: #C4AA7E;
+}
+
+/* Footer */
+
+html.night-mode footer,
+body.night-mode footer {
+    background-color: #19130F;
+    color: #E2CEAE;
+    border-top: 1px solid #35271E;
+}
+
+html.night-mode footer a,
+body.night-mode footer a {
+    color: #D8BE8B;
+}
+
+
+/* =========================
+   PASSION RESPONSIVE
+========================= */
+
+@media (max-width: 950px) {
+
+    .navbar {
+        padding: 9px 25px;
+        gap: 7px;
+    }
+
+    .nav-links {
+        gap: 4px;
+        justify-content: center;
+    }
+
+    .nav-links a {
+        padding: 6px 11px;
+    }
+
+    .passion-content {
+        padding: 35px 28px;
+    }
+
+    .passion-content h2 {
+        font-size: 34px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    .passion-hero {
+        min-height: 400px;
+        padding: 70px 20px;
+    }
+
+    .passion-hero h1 {
+        font-size: 40px;
+    }
+
+    .passion-introduction,
+    .passion-reflection,
+    .passion-closing {
+        padding: 65px 20px;
+    }
+
+    .passion-introduction h2,
+    .passion-reflection h2 {
+        font-size: 30px;
+    }
+
+    .passion-section {
+        padding: 50px 5%;
+    }
+
+    .passion-card,
+    .passion-alternate .passion-card {
+        grid-template-columns: 1fr;
+    }
+
+    .passion-alternate .passion-image {
+        order: 1;
+    }
+
+    .passion-alternate .passion-content {
+        order: 2;
+    }
+
+    .passion-image,
+    .passion-image img {
+        height: 300px;
+        min-height: 300px;
+    }
+
+    .passion-content {
+        padding: 30px;
+    }
+
+    .passion-content h2 {
+        font-size: 32px;
+    }
+
+    .passion-closing h2 {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 650px) {
+
+    .navbar {
+        padding: 8px 12px;
+        gap: 7px;
+    }
+
+    .logo {
+        font-size: 22px;
+        letter-spacing: 3px;
+    }
+
+    .nav-links {
+        gap: 3px;
+        width: 100%;
+    }
+
+    .nav-links a {
+        font-size: 10px;
+        padding: 5px 8px;
+    }
+
+    footer {
+        padding: 28px 20px;
+    }
+
+    .night-toggle-btn {
+        top: 10px;
+        left: 10px;
+        padding: 5px 10px;
+        font-size: 10px;
+        gap: 4px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+
+    .passion-hero {
+        min-height: 360px;
+        padding: 60px 18px;
+    }
+
+    .passion-hero h1 {
+        font-size: 36px;
+    }
+
+    .passion-small-title {
+        font-size: 9px;
+        letter-spacing: 3px;
+    }
+
+    .passion-content {
+        padding: 25px;
+    }
+
+    .passion-content h2 {
+        font-size: 28px;
+    }
+
+    .passion-image,
+    .passion-image img {
+        height: 240px;
+        min-height: 240px;
+    }
+
+    .passion-closing h2 {
+        font-size: 28px;
+    }
+}

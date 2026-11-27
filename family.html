@@ -1,0 +1,348 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Family | HERSTORY</title>
+
+    <link rel="icon" type="image/png" href="reading.png">
+
+    <!-- PRELOAD SAVED NIGHT MODE -->
+    <script>
+        try {
+            if (localStorage.getItem("herstory_night_mode") === "true") {
+                document.documentElement.classList.add("night-mode");
+            }
+        } catch (error) {
+            console.log("Unable to load saved theme.");
+        }
+    </script>
+
+    <link rel="stylesheet" href="style3.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            background-color: #F8F5E8;
+            overscroll-behavior-y: none;
+            overflow-x: clip;
+            max-width: 100%;
+        }
+
+        .petal-container {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .petal {
+            position: absolute;
+            top: -30px;
+            color: #B9A58A;
+            opacity: 0.65;
+            animation: fallingPetals linear infinite;
+        }
+
+        @keyframes fallingPetals {
+            0% {
+                transform: translateY(-30px) rotate(0deg);
+                opacity: 0;
+            }
+
+            15% {
+                opacity: 0.65;
+            }
+
+            85% {
+                opacity: 0.5;
+            }
+
+            100% {
+                transform: translateY(110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 650px) {
+            .family-memory-gallery {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 12px;
+                justify-items: center;
+            }
+
+            .family-memory-photo {
+                width: 100%;
+            }
+
+            .family-memory-photo:nth-child(3) {
+                grid-column: 1 / -1;
+                justify-self: center;
+                max-width: 65%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- SCROLL PROGRESS INDICATOR -->
+    <div id="scroll-progress"></div>
+
+    <div class="petal-container"></div>
+
+    <!-- NAVBAR -->
+    <header>
+        <nav class="navbar">
+
+            <div class="logo">
+                𐙚 HERSTORY 𓍯𓂃
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="family.html" class="active">Family</a></li>
+                <li><a href="journey.html">Journey</a></li>
+                <li><a href="passion.html">Passions</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+            </ul>
+
+        </nav>
+    </header>
+
+
+    <main>
+
+        <!-- FAMILY HERO -->
+        <section class="family-hero">
+
+            <div class="family-hero-content">
+
+                <p class="family-small-title">
+                    THE PEOPLE CLOSEST TO HER HEART
+                </p>
+
+                <div class="family-flower">
+                    𐙚
+                </div>
+
+                <h1>
+                    Her Family.
+                </h1>
+
+                <div class="family-line"></div>
+
+                <p>
+                    Some bonds are woven so tightly into a person’s life that you cannot tell their story without them. 
+                    Get to know the people who have been her safe place, her quiet strength, and the reason every 
+                    chapter feels so full of love.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- FAMILY MEMBERS -->
+        <section class="family-members-section">
+
+            <div class="family-members-heading">
+
+                <p class="section-label">
+                    HER PEOPLE
+                </p>
+
+                <h2>
+                    The Ones She Calls Family
+                </h2>
+
+                <div class="family-editorial-line"></div>
+
+            </div>
+
+
+            <div class="family-members-grid">
+
+                <!-- FELICIA AND HER PARENTS -->
+                <div class="family-member-card">
+
+                    <div class="family-member-image">
+
+                        <img src="parents.jpg" alt="Felicia with her parents">
+
+                    </div>
+
+                    <div class="family-member-content">
+
+                        <span class="family-member-label">
+                            HER PARENTS
+                        </span>
+
+                        <h3>
+                            Her Mom &amp; Dad
+                        </h3>
+
+                        <p>
+                            The two people who have been part of
+                            her life since the beginning. Their
+                            love, guidance, and support have helped
+                            shape the person she is today.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- THE WHOLE FAMILY -->
+                <div class="family-member-card">
+
+                    <div class="family-member-image">
+
+                        <img src="fams.jpg" alt="Felicia with her whole family">
+
+                    </div>
+
+                    <div class="family-member-content">
+
+                        <span class="family-member-label">
+                            HER HOME
+                        </span>
+
+                        <h3>
+                            The Whole Family
+                        </h3>
+
+                        <p>
+                            A collection of people who share
+                            laughter, memories, and special moments
+                            together. They make her feel that
+                            she will always have a place to call home.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FAMILY MEMORIES -->
+        <section class="family-memories">
+
+            <div class="family-memories-content">
+
+                <p class="section-label">
+                    LITTLE MOMENTS, BIG MEMORIES
+                </p>
+
+                <h2>
+                    Memories Worth Keeping
+                </h2>
+
+                <div class="family-editorial-line"></div>
+
+                <p>
+                    From celebrations and gatherings to ordinary
+                    days spent together, these are the moments
+                    that become memories she will look back on
+                    with love.
+                </p>
+
+            </div>
+
+
+            <div class="family-memory-gallery">
+
+                <div class="family-memory-photo">
+                    <img src="memo1.jpeg" alt="Family memory one">
+                </div>
+
+                <div class="family-memory-photo">
+                    <img src="memo2.jpeg" alt="Family memory two">
+                </div>
+
+                <div class="family-memory-photo">
+                    <img src="memo3.jpeg" alt="Family memory three">
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CLOSING -->
+        <section class="family-closing">
+
+            <div class="family-closing-content">
+
+                <span class="closing-icon">
+                    𐙚
+                </span>
+
+                <p class="section-label">
+                    HER STORY, THEIR LOVE
+                </p>
+
+                <h2>
+                    Some of her favourite memories
+                    begin at home.
+                </h2>
+
+                <p>
+                    The people, the laughter, the lessons,
+                    and the memories she carries with her
+                    are all part of the story that makes her.
+                </p>
+
+                <a href="index.html" class="family-button">
+                    Back To HERSTORY &rarr;
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+       <script>
+        (function () {
+            const container = document.querySelector(".petal-container");
+            if (!container) return;
+
+            const petalCount = 16;
+            const symbols = ["❀", "✿", "❁"];
+
+            for (let i = 0; i < petalCount; i++) {
+                const petal = document.createElement("span");
+                petal.className = "petal";
+                petal.textContent = symbols[i % symbols.length];
+                petal.style.left = Math.random() * 100 + "%";
+                petal.style.fontSize = (13 + Math.random() * 8) + "px";
+                petal.style.animationDuration = (8 + Math.random() * 7) + "s";
+                petal.style.animationDelay = (Math.random() * 8) + "s";
+                container.appendChild(petal);
+            }
+        })();
+    </script>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

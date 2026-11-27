@@ -1,0 +1,1424 @@
+/* =========================================
+   BASE, HEADER & FOOTER
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    background-color: #F8F5E8;
+    overscroll-behavior-y: none;
+    overflow-x: clip;
+    max-width: 100%;
+}
+
+body {
+    width: 100%;
+    min-width: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #F8F5E8;
+    color: #594333;
+    line-height: 1.7;
+    text-align: center;
+    overflow-x: clip;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+a {
+    color: #594333;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* SCROLL PROGRESS */
+
+#scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: #81772F;
+    z-index: 10001;
+}
+
+/* HEADER & NAVIGATION */
+
+header {
+    background-color: #F8F5E8;
+    border-bottom: 1px solid #D9D8B2;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.navbar {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 0;
+    letter-spacing: 5px;
+    color: #594333;
+    transition: color 0.25s ease;
+}
+
+.logo span {
+    color: #81772F;
+}
+
+.logo:hover {
+    color: #81772F;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    list-style: none;
+    flex-wrap: wrap;
+    padding: 2px;
+}
+
+.nav-links a {
+    display: block;
+    padding: 6px 12px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #594333;
+    transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.nav-links a:hover {
+    background-color: #D9D8B2;
+    color: #594333;
+    transform: translateY(-2px);
+}
+
+.nav-links a.active {
+    background-color: #E8E085;
+    color: #594333;
+    box-shadow: 0 3px 10px rgba(89, 67, 51, 0.08);
+}
+
+/* FOOTER */
+
+footer {
+    background-color: #594333;
+    color: #F8F5E8;
+    text-align: center;
+    padding: 28px 20px;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+footer p {
+    max-width: 750px;
+    margin: 8px auto;
+    font-size: 12px;
+    line-height: 1.8;
+    text-align: center;
+}
+
+footer a {
+    color: #E8E085;
+    transition: opacity 0.25s ease;
+}
+
+footer a:hover {
+    opacity: 0.7;
+}
+
+
+/* =========================================
+   ABOUT HERO SECTION
+========================================= */
+
+.about-hero {
+    min-height: 500px;
+    padding: 60px 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background-image:
+        linear-gradient(
+            rgba(89, 67, 51, 0.55),
+            rgba(89, 67, 51, 0.55)
+        ),
+        url("brown.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.about-hero::before {
+    content: "";
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    border: 1px solid rgba(232, 224, 133, 0.25);
+    border-radius: 50%;
+    top: -230px;
+    left: -150px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.about-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: #594333;
+    opacity: 0.25;
+    background-image:
+        radial-gradient(
+            rgba(248, 245, 232, 0.35) 1px,
+            transparent 0
+        );
+    background-size: 4px 4px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.about-hero-content {
+    width: 100%;
+    max-width: 720px;
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    transform: translateY(5px);
+}
+
+.about-small-title {
+    font-size: 11px;
+    letter-spacing: 4px;
+    font-weight: bold;
+    color: #E8E085;
+    margin-bottom: 10px;
+}
+
+.about-flower {
+    font-size: 36px;
+    color: #E8E085;
+    margin: 12px 0 6px;
+}
+
+.about-hero h1 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(50px, 7vw, 75px);
+    font-weight: normal;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    color: #F8F5E8;
+}
+
+.about-line {
+    width: 60px;
+    height: 2px;
+    background-color: #E8E085;
+    margin: 0 auto 20px;
+}
+
+.about-hero-content > p:last-child {
+    max-width: 650px;
+    margin: auto;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    line-height: 1.9;
+    text-align: justify;
+    text-align-last: center;
+    color: #F8F5E8;
+}
+
+
+/* =========================================
+   WHO IS SHE
+========================================= */
+
+.who-is-she {
+    width: 100%;
+    padding: 80px 30px 70px;
+    background-color: #F8F5E8;
+    text-align: center;
+    border-bottom: 1px solid #D9D8B2;
+}
+
+.who-is-she-content {
+    width: 100%;
+    max-width: 700px;
+    margin: auto;
+}
+
+.section-label {
+    margin: 0 0 8px;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #81772F;
+    text-align: center;
+}
+
+.who-is-she h2 {
+    margin: 10px 0 20px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 40px;
+    font-weight: normal;
+    color: #594333;
+}
+
+.editorial-line {
+    width: 55px;
+    height: 1px;
+    margin: 0 auto 28px;
+    background-color: #C7C69F;
+}
+
+.who-is-she-content p:not(.section-label) {
+    max-width: 650px;
+    margin: 0 auto 15px;
+    font-size: 14px;
+    line-height: 1.85;
+    text-align: justify;
+    text-align-last: center;
+    color: #594333;
+}
+
+
+/* =========================================
+   PROFILE INFORMATION
+========================================= */
+
+.profile-information {
+    width: 100%;
+    padding: 85px 25px;
+    background-color: #D9D8B2;
+}
+
+.profile-layout {
+    width: 100%;
+    max-width: 860px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+}
+
+/* FELICIA'S PHOTO */
+
+.profile-photo {
+    width: 100%;
+    max-width: 310px;
+    margin: 0 auto;
+    padding: 18px 18px 22px;
+    background-color: #F8F5E8;
+    border: 1px solid #C7C69F;
+    border-radius: 18px;
+    box-shadow: 0 10px 28px rgba(89, 67, 51, 0.08);
+    text-align: center;
+}
+
+.photo-frame {
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+    border-radius: 12px;
+    border: 3px solid #E8E085;
+    background-color: #E8E2CE;
+}
+
+.photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.profile-photo:hover .photo-frame img {
+    transform: scale(1.03);
+}
+
+.profile-photo p {
+    margin: 16px auto 4px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 15px;
+    font-style: italic;
+    line-height: 1.5;
+    text-align: center;
+    color: #594333;
+}
+
+.profile-photo > span {
+    display: block;
+    margin-top: 6px;
+    font-size: 22px;
+    color: #81772F;
+}
+
+/* PROFILE DETAILS */
+
+.profile-details {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+.profile-category {
+    width: 100%;
+    background-color: #F8F5E8;
+    border: 1px solid #C7C69F;
+    border-radius: 18px;
+    padding: 45px 40px;
+    box-shadow: 0 8px 24px rgba(89, 67, 51, 0.06);
+    text-align: center;
+}
+
+.profile-category h2 {
+    margin: 6px 0 15px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 34px;
+    font-weight: normal;
+    color: #594333;
+    text-align: center;
+}
+
+.category-line {
+    width: 45px;
+    height: 2px;
+    margin: 0 auto 30px;
+    background-color: #81772F;
+}
+
+
+/* =========================================
+   BASIC INFORMATION
+========================================= */
+
+.basic-information {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+    border-top: 1px solid #D9D8B2;
+}
+
+.information-row {
+    display: grid;
+    grid-template-columns: 200px minmax(0, 1fr);
+    align-items: center;
+    min-height: 56px;
+    padding: 12px 15px;
+    border-bottom: 1px solid #D9D8B2;
+    text-align: left;
+}
+
+.information-row span {
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: #81772F;
+}
+
+.information-row p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #594333;
+}
+
+
+/* =========================================
+   EDUCATION
+========================================= */
+
+.education-section {
+    padding: 28px 0;
+    border-bottom: 1px solid #D9D8B2;
+    text-align: center;
+}
+
+.education-heading {
+    margin-bottom: 18px;
+    text-align: center;
+}
+
+.education-heading span {
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #81772F;
+}
+
+.education-details {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.education-card {
+    position: relative;
+    min-width: 0;
+    min-height: 145px;
+    padding: 26px 18px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #F3EEDC;
+    border: 1px solid #D9D8B2;
+    border-radius: 12px;
+    text-align: center;
+    transition: transform 0.25s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.education-card:hover {
+    transform: translateY(-3px);
+}
+
+.education-number {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 12px;
+    font-style: italic;
+    color: #81772F;
+}
+
+.education-card small {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 9px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #81772F;
+}
+
+.education-card p {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #594333;
+}
+
+
+/* =========================================
+   CHARACTER & THREE WORDS
+========================================= */
+
+.character-information {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.character-card {
+    min-width: 0;
+    padding: 30px 26px;
+    background-color: #F3EEDC;
+    border: 1px solid #D9D8B2;
+    border-radius: 14px;
+    text-align: center;
+}
+
+.character-card-icon {
+    margin-bottom: 10px;
+    font-size: 22px;
+    color: #81772F;
+}
+
+.character-card h3 {
+    margin: 0 0 16px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 23px;
+    font-weight: normal;
+    color: #594333;
+}
+
+.character-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+}
+
+.character-list li {
+    margin-bottom: 12px;
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: #594333;
+}
+
+.character-list li:last-child {
+    margin-bottom: 0;
+}
+
+/* THREE WORDS */
+
+.three-words-section {
+    margin-top: 38px;
+    padding: 35px 0 0;
+    background-color: transparent;
+    border: none;
+    border-top: 1px solid #D9D8B2;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.three-words-section h2 {
+    font-size: 28px;
+}
+
+.three-words-list {
+    width: 100%;
+    max-width: 720px;
+    margin: 25px auto 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.three-words-section .word-card {
+    min-width: 0;
+    padding: 24px 16px;
+    text-align: center;
+    background-color: #F3EEDC;
+    border: 1px solid #D9D8B2;
+    border-radius: 14px;
+    transition: transform 0.25s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.three-words-section .word-card:hover {
+    transform: translateY(-4px);
+}
+
+.three-words-section .word-card img {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto 12px;
+}
+
+.three-words-section .word-card p {
+    color: #594333;
+    font-weight: bold;
+    font-size: 14px;
+    margin: 0;
+}
+
+
+/* =========================================
+   FAVOURITES
+========================================= */
+
+.favourites-list {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+    border-top: 1px solid #D9D8B2;
+}
+
+.favourite-row {
+    display: grid;
+    grid-template-columns: 200px minmax(0, 1fr);
+    align-items: center;
+    min-height: 58px;
+    padding: 14px 15px;
+    border-bottom: 1px solid #D9D8B2;
+    text-align: left;
+}
+
+.favourite-row span {
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: #81772F;
+}
+
+.favourite-row p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.65;
+    color: #594333;
+}
+
+
+/* =========================================
+   FUTURE & TALENTS
+========================================= */
+
+.future-list {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.future-item {
+    min-width: 0;
+    padding: 30px 26px;
+    background-color: #F3EEDC;
+    border: 1px solid #D9D8B2;
+    border-radius: 14px;
+    text-align: center;
+}
+
+.future-item h3 {
+    margin: 0 0 14px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 22px;
+    font-weight: normal;
+    color: #594333;
+}
+
+.future-item p {
+    margin: 0 0 8px;
+    font-size: 13.5px;
+    line-height: 1.8;
+    color: #594333;
+}
+
+.future-item p:last-child {
+    margin-bottom: 0;
+}
+
+.future-item p strong {
+    font-size: 16px;
+    color: #81772F;
+}
+
+
+/* =========================================
+   PERSONAL MOTTO
+========================================= */
+
+.motto-area {
+    background-color: #E8E085;
+    border-color: #C7C69F;
+}
+
+.motto {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 600px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 24px;
+    font-style: italic;
+    line-height: 1.7;
+    text-align: center;
+    color: #594333;
+}
+
+
+/* =========================================
+   CLOSING THOUGHT & CLOSING
+========================================= */
+
+.about-reflection {
+    width: 100%;
+    padding: 80px 30px;
+    background-color: #F8F5E8;
+    text-align: center;
+}
+
+.about-reflection-content {
+    width: 100%;
+    max-width: 700px;
+    margin: auto;
+}
+
+.about-reflection h2 {
+    margin: 10px 0 20px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 38px;
+    font-weight: normal;
+    color: #594333;
+}
+
+.about-reflection-content p:not(.section-label) {
+    font-size: 14px;
+    line-height: 1.85;
+    text-align: justify;
+    text-align-last: center;
+    color: #594333;
+}
+
+.about-closing {
+    width: 100%;
+    padding: 80px 30px;
+    background-color: #F3EEDC;
+    border-top: 1px solid #D9D8B2;
+    text-align: center;
+}
+
+.about-closing-content {
+    width: 100%;
+    max-width: 650px;
+    margin: auto;
+}
+
+.closing-icon {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 28px;
+    color: #81772F;
+}
+
+.about-closing h2 {
+    margin: 10px 0 20px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 38px;
+    font-weight: normal;
+    color: #594333;
+}
+
+.about-closing p:not(.section-label) {
+    margin: 0 auto 25px;
+    font-size: 14px;
+    line-height: 1.85;
+    text-align: justify;
+    text-align-last: center;
+    color: #594333;
+}
+
+.about-button {
+    display: inline-block;
+    padding: 13px 24px;
+    background-color: #E8E085;
+    border: 1px solid #E8E085;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #594333;
+    transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.about-button:hover {
+    background-color: #81772F;
+    border-color: #81772F;
+    color: #F8F5E8;
+    transform: translateY(-2px);
+}
+
+
+/* =========================================
+   FALLING FLOWER PETALS
+========================================= */
+
+.petal-container {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.petal {
+    position: absolute;
+    top: -30px;
+    color: #B9A58A;
+    opacity: 0.65;
+    animation: flowerSnow linear infinite;
+}
+
+@keyframes flowerSnow {
+    0% {
+        transform: translate3d(0, -30px, 0) rotate(0deg);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 0.65;
+    }
+
+    85% {
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: translate3d(var(--drift, 0px), 110vh, 0) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+
+/* =========================================
+   RESPONSIVE DESIGN - TABLET
+========================================= */
+
+@media (max-width: 950px) {
+
+    .navbar {
+        padding: 9px 25px;
+        gap: 7px;
+    }
+
+    .nav-links {
+        gap: 4px;
+        justify-content: center;
+    }
+
+    .nav-links a {
+        padding: 6px 11px;
+    }
+}
+
+
+/* =========================================
+   RESPONSIVE DESIGN - 768PX
+========================================= */
+
+@media screen and (max-width: 768px) {
+
+    .about-hero {
+        min-height: 400px;
+        padding: 70px 20px;
+    }
+
+    .about-hero h1 {
+        font-size: 40px;
+    }
+
+    .who-is-she,
+    .about-reflection {
+        padding: 65px 20px;
+    }
+
+    .about-closing {
+        padding: 58px 20px;
+    }
+
+    .who-is-she h2,
+    .about-reflection h2,
+    .about-closing h2 {
+        font-size: 30px;
+    }
+
+    .profile-information {
+        padding: 65px 20px;
+    }
+
+    .profile-category {
+        padding: 32px 22px;
+    }
+
+    .information-row,
+    .favourite-row {
+        grid-template-columns: 1fr;
+        gap: 4px;
+        text-align: center;
+        padding: 14px 10px;
+    }
+
+    .education-details {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    justify-content: center;
+}
+
+/* Centre the third education box */
+.education-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    width: calc((100% - 14px) / 2);
+    justify-self: center;
+}
+
+    .character-information,
+    .three-words-list,
+    .future-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =========================================
+   RESPONSIVE DESIGN - 650PX
+========================================= */
+
+@media (max-width: 650px) {
+
+    .navbar {
+        padding: 8px 12px;
+        gap: 7px;
+    }
+
+    .logo {
+        font-size: 22px;
+        letter-spacing: 3px;
+    }
+
+    .nav-links {
+        gap: 3px;
+        width: 100%;
+    }
+
+    .nav-links a {
+        font-size: 10px;
+        padding: 5px 8px;
+    }
+
+    footer {
+        padding: 28px 20px;
+    }
+
+    .night-toggle-btn {
+        top: 10px;
+        left: 10px;
+        padding: 5px 10px;
+        font-size: 10px;
+        gap: 4px;
+    }
+}
+
+
+/* =========================================
+   RESPONSIVE DESIGN - SMALL PHONES
+========================================= */
+
+@media screen and (max-width: 480px) {
+
+    .about-hero {
+        min-height: 360px;
+        padding: 60px 18px;
+    }
+
+    .about-hero h1 {
+        font-size: 36px;
+    }
+
+    .about-small-title {
+        font-size: 9px;
+        letter-spacing: 3px;
+    }
+
+    .about-flower {
+        font-size: 30px;
+    }
+
+    .about-hero-content > p:last-child {
+        font-size: 13px;
+    }
+
+    .who-is-she h2,
+    .about-reflection h2,
+    .about-closing h2 {
+        font-size: 27px;
+    }
+
+    .profile-information {
+        padding: 45px 14px;
+    }
+
+    .profile-category {
+        padding: 25px 15px;
+    }
+
+    .profile-category h2 {
+        font-size: 25px;
+    }
+
+   .education-details {
+    grid-template-columns: 1fr;
+    gap: 14px;
+}
+
+.education-card:last-child:nth-child(odd) {
+    grid-column: auto;
+    width: 100%;
+    justify-self: stretch;
+}
+
+    .motto {
+        font-size: 18px;
+    }
+}
+
+
+/* =====================================
+   TOP-LEFT NIGHT MODE BUTTON
+===================================== */
+
+.night-toggle-btn {
+    position: absolute;
+    top: 14px;
+    left: 18px;
+    z-index: 1002;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px;
+    border: 1px solid #C8B998;
+    border-radius: 999px;
+    background-color: #F6EFE0;
+    color: #523B2B;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 0.6px;
+    box-shadow: 0 2px 8px rgba(82, 59, 43, 0.12);
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.night-toggle-btn:hover {
+    background-color: #E5D4A7;
+    border-color: #8A6F3B;
+    color: #463122;
+}
+
+.night-toggle-btn .night-icon {
+    font-size: 13px;
+    line-height: 1;
+    color: #8A6F3B;
+}
+
+
+/* =========================================
+   NIGHT MODE
+   BROWN & BEIGE THEME
+========================================= */
+
+html.night-mode,
+html.night-mode body,
+body.night-mode {
+    background-color: #221A14;
+    color: #EADBC2;
+}
+
+html.night-mode header,
+body.night-mode header {
+    background-color: #221A14;
+    border-bottom-color: #3F2F24;
+}
+
+html.night-mode .logo,
+html.night-mode .nav-links a,
+body.night-mode .logo,
+body.night-mode .nav-links a {
+    color: #EADBC2;
+}
+
+html.night-mode .logo:hover,
+html.night-mode .logo span,
+body.night-mode .logo:hover,
+body.night-mode .logo span {
+    color: #D8BE8B;
+}
+
+html.night-mode .nav-links a:hover,
+body.night-mode .nav-links a:hover {
+    background-color: #37291F;
+    color: #F4E9D4;
+}
+
+html.night-mode .nav-links a.active,
+body.night-mode .nav-links a.active {
+    background-color: #786030;
+    color: #F5ECDA;
+    border: none;
+}
+
+html.night-mode .night-toggle-btn,
+body.night-mode .night-toggle-btn {
+    background-color: #2F231B;
+    border-color: #967B44;
+    color: #E8D5B0;
+    box-shadow: 0 2px 8px rgba(20, 14, 10, 0.32);
+}
+
+html.night-mode .night-toggle-btn:hover,
+body.night-mode .night-toggle-btn:hover {
+    background-color: #786030;
+    border-color: #D8BE8B;
+    color: #F5ECDA;
+}
+
+html.night-mode .night-toggle-btn .night-icon,
+body.night-mode .night-toggle-btn .night-icon {
+    color: #DFC285;
+}
+
+html.night-mode .about-hero,
+body.night-mode .about-hero {
+    background-color: #281E17;
+    background-image:
+        linear-gradient(
+            rgba(34, 26, 20, 0.56),
+            rgba(34, 26, 20, 0.56)
+        ),
+        url("brown.jpg");
+}
+
+html.night-mode .about-hero::before,
+body.night-mode .about-hero::before {
+    border-color: rgba(216, 190, 139, 0.28);
+}
+
+html.night-mode .about-hero::after,
+body.night-mode .about-hero::after {
+    background-color: #221913;
+    opacity: 0.22;
+}
+
+html.night-mode .about-small-title,
+html.night-mode .about-flower,
+body.night-mode .about-small-title,
+body.night-mode .about-flower {
+    color: #D8BE8B;
+}
+
+html.night-mode .about-line,
+body.night-mode .about-line {
+    background-color: #D8BE8B;
+}
+
+html.night-mode .who-is-she,
+html.night-mode .about-reflection,
+body.night-mode .who-is-she,
+body.night-mode .about-reflection {
+    background-color: #221A14;
+    border-color: #3F2F24;
+}
+
+html.night-mode .profile-information,
+html.night-mode .about-closing,
+body.night-mode .profile-information,
+body.night-mode .about-closing {
+    background-color: #2A2019;
+    border-color: #3F2F24;
+}
+
+html.night-mode .about-closing,
+body.night-mode .about-closing {
+    border-top: 1px solid #3F2F24;
+}
+
+html.night-mode .who-is-she-content,
+html.night-mode .about-closing-content,
+body.night-mode .who-is-she-content,
+body.night-mode .about-closing-content {
+    width: 100%;
+    max-width: 700px;
+    margin: auto;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+}
+
+html.night-mode .about-reflection-content,
+body.night-mode .about-reflection-content {
+    background-color: #33261D;
+    border: 1px solid #4E3B2E;
+    border-radius: 18px;
+    padding: 40px 32px;
+}
+
+html.night-mode .profile-photo,
+html.night-mode .profile-category,
+body.night-mode .profile-photo,
+body.night-mode .profile-category {
+    background-color: #33261D;
+    border-color: #4E3B2E;
+}
+
+html.night-mode .photo-frame,
+body.night-mode .photo-frame {
+    background-color: #3C2D23;
+    border-color: #564234;
+}
+
+html.night-mode .education-card,
+html.night-mode .character-card,
+html.night-mode .three-words-section .word-card,
+html.night-mode .future-item,
+body.night-mode .education-card,
+body.night-mode .character-card,
+body.night-mode .three-words-section .word-card,
+body.night-mode .future-item {
+    background-color: #3C2D23;
+    border-color: #564234;
+}
+
+html.night-mode .motto-area,
+body.night-mode .motto-area {
+    background-color: #3C2D23;
+    border-color: #564234;
+}
+
+html.night-mode .editorial-line,
+body.night-mode .editorial-line {
+    background-color: #C5AA78;
+}
+
+html.night-mode .category-line,
+body.night-mode .category-line {
+    background-color: #D8BE8B;
+}
+
+html.night-mode .basic-information,
+html.night-mode .information-row,
+html.night-mode .education-section,
+html.night-mode .three-words-section,
+html.night-mode .favourites-list,
+html.night-mode .favourite-row,
+body.night-mode .basic-information,
+body.night-mode .information-row,
+body.night-mode .education-section,
+body.night-mode .three-words-section,
+body.night-mode .favourites-list,
+body.night-mode .favourite-row {
+    border-color: #564234;
+}
+
+html.night-mode h1,
+html.night-mode h2,
+html.night-mode h3,
+html.night-mode .motto,
+html.night-mode .three-words-section .word-card p,
+body.night-mode h1,
+body.night-mode h2,
+body.night-mode h3,
+body.night-mode .motto,
+body.night-mode .three-words-section .word-card p {
+    color: #EADBC2;
+}
+
+html.night-mode p,
+html.night-mode li,
+html.night-mode .about-hero-content > p:last-child,
+html.night-mode .who-is-she-content p:not(.section-label),
+html.night-mode .profile-photo p,
+html.night-mode .information-row p,
+html.night-mode .education-card p,
+html.night-mode .character-list li,
+html.night-mode .favourite-row p,
+html.night-mode .future-item p,
+html.night-mode .about-reflection-content p:not(.section-label),
+html.night-mode .about-closing p:not(.section-label),
+body.night-mode p,
+body.night-mode li,
+body.night-mode .about-hero-content > p:last-child,
+body.night-mode .who-is-she-content p:not(.section-label),
+body.night-mode .profile-photo p,
+body.night-mode .information-row p,
+body.night-mode .education-card p,
+body.night-mode .character-list li,
+body.night-mode .favourite-row p,
+body.night-mode .future-item p,
+body.night-mode .about-reflection-content p:not(.section-label),
+body.night-mode .about-closing p:not(.section-label) {
+    color: #EADBC2;
+}
+
+html.night-mode .section-label,
+html.night-mode .information-row span,
+html.night-mode .education-heading span,
+html.night-mode .education-number,
+html.night-mode .education-card small,
+html.night-mode .character-card-icon,
+html.night-mode .favourite-row span,
+html.night-mode .future-item p strong,
+html.night-mode .profile-photo > span,
+html.night-mode .closing-icon,
+body.night-mode .section-label,
+body.night-mode .information-row span,
+body.night-mode .education-heading span,
+body.night-mode .education-number,
+body.night-mode .education-card small,
+body.night-mode .character-card-icon,
+body.night-mode .favourite-row span,
+body.night-mode .future-item p strong,
+body.night-mode .profile-photo > span,
+body.night-mode .closing-icon {
+    color: #D8BE8B;
+}
+
+html.night-mode .about-button,
+body.night-mode .about-button {
+    background-color: #786030;
+    border-color: #786030;
+    color: #F5ECDA;
+}
+
+html.night-mode .about-button:hover,
+body.night-mode .about-button:hover {
+    background-color: #D8BE8B;
+    border-color: #D8BE8B;
+    color: #241A14;
+}
+
+html.night-mode #scroll-progress,
+body.night-mode #scroll-progress {
+    background-color: #D8BE8B;
+}
+
+html.night-mode .petal,
+body.night-mode .petal {
+    color: #C4AA7E;
+}
+
+html.night-mode footer,
+body.night-mode footer {
+    background-color: #19130F;
+    color: #E2CEAE;
+    border-top: 1px solid #35271E;
+}
+
+html.night-mode footer a,
+body.night-mode footer a {
+    color: #D8BE8B;
+}
+
+
+/* =========================================
+   NIGHT MODE BUTTON - MOBILE
+========================================= */
+
+@media (max-width: 650px) {
+
+    .night-toggle-btn {
+        top: 10px;
+        left: 10px;
+        padding: 5px 10px;
+        font-size: 10px;
+        gap: 4px;
+    }
+}
